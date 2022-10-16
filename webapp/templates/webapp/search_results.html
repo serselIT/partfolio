@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+  {% block page_content %}
+  <div style="margin: 20px">
+      <h1>Search results</h1>
+  </div>
+    {% if projects %}
+    <div style="margin: 50px;">
+        <div class="row row-cols-3">
+            {% for project in projects %}
+              <div class="col-4">
+                <div class="card" style="margin: 20px">
+                  <img src="{{ project.image.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        <div style="margin: 20px">
+            <h3>No results..</h3>
+        </div>
+    {% endif %}
+  {% endblock %}
